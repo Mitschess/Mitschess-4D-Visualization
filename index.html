@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Penjelajah Dimensi Keempat</title>
+<meta name="description" content="Visualisasi interaktif dimensi keempat: tesseract, bayangan, irisan, jaring-jaring, rotasi 4D, dan galeri bentuk 4D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=Unbounded:wght@500;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%23a93597' stroke-width='2.4'%3E%3Crect x='3' y='3' width='26' height='26'/%3E%3Crect x='11' y='11' width='10' height='10'/%3E%3Cpath d='M3 3l8 8M29 3l-8 8M3 29l8-8M29 29l-8-8'/%3E%3C/g%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#mulai" aria-label="Ke awal halaman"><span class="brand-mark" aria-hidden="true">4D</span><span class="brand-name">Penjelajah Dimensi Keempat</span></a>
+  <nav class="nav" aria-label="Bagian halaman">
+    <a href="#tangga">Tangga</a>
+    <a href="#bayangan">Bayangan</a>
+    <a href="#rotasi">Rotasi</a>
+    <a href="#irisan">Irisan</a>
+    <a href="#jaring">Jaring-jaring</a>
+    <a href="#galeri">Galeri</a>
+  </nav>
+  <button type="button" class="vbtn theme-btn" id="theme-toggle" aria-label="Ganti tema">
+    <svg class="i-moon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M13.2 10.4A5.6 5.6 0 0 1 5.6 2.8a5.6 5.6 0 1 0 7.6 7.6z" fill="currentColor"/></svg>
+    <svg class="i-sun" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><path d="M8 .8v2M8 13.2v2M.8 8h2M13.2 8h2M2.9 2.9l1.4 1.4M11.7 11.7l1.4 1.4M2.9 13.1l1.4-1.4M11.7 4.3l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </button>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="mulai">
+  <div class="hero-text">
+    <p class="eyebrow">Ruang empat dimensi</p>
+    <h1>Seperti apa dimensi <span class="accent">keempat</span>?</h1>
+    <p class="lede">Kita hidup di ruang tiga dimensi, jadi benda 4D tidak bisa kita lihat secara utuh. Yang bisa kita lihat adalah bayangannya, irisannya, dan jaring-jaringnya. Caranya sama seperti makhluk dua dimensi yang mencoba memahami sebuah kubus.</p>
+    <p>Benda di samping adalah <strong>tesseract</strong>, kubus versi 4D. Seret untuk memutarnya. Tahan <kbd>Shift</kbd> sambil menyeret, atau pilih tombol <b>4D</b>, untuk memutarnya ke arah keempat.</p>
+    <div class="legend" aria-label="Warna rusuk menurut arah">
+      <span><i style="background:var(--ax-x)"></i>X</span>
+      <span><i style="background:var(--ax-y)"></i>Y</span>
+      <span><i style="background:var(--ax-z)"></i>Z</span>
+      <span><i style="background:var(--ax-w)"></i>W, arah keempat</span>
+    </div>
+    <div class="note">
+      <p class="note-label">Bukan soal waktu</p>
+      <p>Dalam fisika, waktu sering disebut dimensi keempat. Halaman ini membahas hal lain: arah <em>ruang</em> keempat yang tegak lurus terhadap panjang, lebar, dan tinggi sekaligus. Arah itu kita beri nama <b>W</b>.</p>
+    </div>
+  </div>
+  <figure class="fig hero-fig">
+    <div class="viewer" id="v-hero"></div>
+    <figcaption class="fig-bar">
+      <button type="button" class="btn play" id="hero-play" aria-pressed="true">
+        <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+        <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+        <span class="lbl">Jeda</span>
+      </button>
+      <span class="readout">Rotasi ganda di bidang XW dan YZ</span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ============ 01 TANGGA ============ -->
+<section class="sec" id="tangga">
+  <div class="sec-head">
+    <p class="eyebrow">01 · Tangga dimensi</p>
+    <h2>Membangun satu dimensi demi satu dimensi</h2>
+    <div class="prose">
+      <p>Setiap dimensi baru dibuat dengan cara yang sama. Ambil bentuk yang sudah ada, geser ke arah baru yang tegak lurus terhadap semua arah sebelumnya, lalu sambungkan setiap titik lama dengan salinannya.</p>
+      <p>Aturan ini tidak peduli apakah kita bisa membayangkan arah barunya. Karena itu, aturan yang sama tetap berlaku saat kita naik dari kubus ke 4D.</p>
+    </div>
+  </div>
+  <div class="tool">
+    <figure class="fig">
+      <div class="viewer" id="v-ladder"></div>
+      <figcaption class="legend">
+        <span><i style="background:var(--ax-x)"></i>rusuk X</span>
+        <span><i style="background:var(--ax-y)"></i>rusuk Y</span>
+        <span><i style="background:var(--ax-z)"></i>rusuk Z</span>
+        <span><i style="background:var(--ax-w)"></i>rusuk W</span>
+      </figcaption>
+    </figure>
+    <div class="panel">
+      <div class="steps" id="ladder-steps" role="group" aria-label="Pilih dimensi">
+        <button type="button" class="chip" data-dim="0" aria-pressed="false">0D</button>
+        <button type="button" class="chip" data-dim="1" aria-pressed="false">1D</button>
+        <button type="button" class="chip" data-dim="2" aria-pressed="false">2D</button>
+        <button type="button" class="chip" data-dim="3" aria-pressed="true">3D</button>
+        <button type="button" class="chip" data-dim="4" aria-pressed="false">4D</button>
+      </div>
+      <p class="step-desc" id="ladder-desc" aria-live="polite"></p>
+      <div class="ctrl-row">
+        <button type="button" class="btn ghost" id="ladder-prev">← Turun</button>
+        <button type="button" class="btn" id="ladder-next">Geser ke arah baru →</button>
+      </div>
+      <div class="table-wrap">
+        <table class="counts" id="ladder-table">
+          <thead><tr><th scope="col">Bentuk</th><th scope="col">Titik sudut</th><th scope="col">Rusuk</th><th scope="col">Sisi</th><th scope="col">Sel</th></tr></thead>
+          <tbody>
+            <tr><td>Titik</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+            <tr><td>Garis</td><td>2</td><td>1</td><td>0</td><td>0</td></tr>
+            <tr><td>Persegi</td><td>4</td><td>4</td><td>1</td><td>0</td></tr>
+            <tr><td>Kubus</td><td>8</td><td>12</td><td>6</td><td>1</td></tr>
+            <tr><td>Tesseract</td><td>16</td><td>32</td><td>24</td><td>8</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">Polanya: titik sudut selalu berlipat dua. Rusuk baru sama dengan 2 × rusuk lama ditambah titik sudut lama, karena setiap titik lama tersambung ke salinannya. Kubus punya 2 × 12 + 8 = 32 rusuk setelah digeser ke arah W.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 BAYANGAN ============ -->
+<section class="sec" id="bayangan">
+  <div class="sec-head">
+    <p class="eyebrow">02 · Proyeksi</p>
+    <h2>Yang kita lihat adalah bayangannya</h2>
+    <div class="prose">
+      <p>Gambar tesseract yang biasa kamu lihat sebenarnya adalah bayangan. Bayangkan kerangka kawat sebuah kubus disinari lampu dari atas. Di lantai muncul bayangan 2D: persegi kecil di dalam persegi besar. Persegi besar berasal dari sisi yang dekat lampu, persegi kecil dari sisi yang jauh.</p>
+      <p>Tesseract yang disinari "lampu 4D" menghasilkan bayangan 3D, yaitu kubus kecil di dalam kubus besar. Gambar di layar adalah bayangan 3D itu, digambar sekali lagi di permukaan datar.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <figure class="fig">
+      <div class="viewer" id="v-shadow3"></div>
+      <figcaption>
+        <p class="fig-title">Kerangka kubus → bayangan 2D di lantai</p>
+        <div class="legend">
+          <span><i style="background:var(--ax-x)"></i>mendatar X</span>
+          <span><i style="background:var(--ax-z)"></i>mendatar Z</span>
+          <span><i style="background:var(--ax-w)"></i>tegak, ke arah lampu</span>
+        </div>
+      </figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="viewer" id="v-shadow4"></div>
+      <figcaption>
+        <p class="fig-title">Kerangka tesseract → bayangan 3D</p>
+        <div class="legend">
+          <span><i style="background:var(--ax-x)"></i>X</span>
+          <span><i style="background:var(--ax-y)"></i>Y</span>
+          <span><i style="background:var(--ax-z)"></i>Z</span>
+          <span><i style="background:var(--ax-w)"></i>W, ke arah lampu 4D</span>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="controls">
+    <button type="button" class="btn play" id="shadow-play" aria-pressed="true">
+      <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+      <span class="lbl">Jeda</span>
+    </button>
+    <label class="range-field" for="shadow-angle">
+      <span class="ctl-label">Sudut putar <output id="shadow-angle-out">30°</output></span>
+      <input type="range" id="shadow-angle" min="0" max="360" step="1" value="30">
+    </label>
+    <div class="ctl-group">
+      <span class="ctl-label">Sumber cahaya</span>
+      <div class="seg-lg" role="group" aria-label="Sumber cahaya">
+        <button type="button" class="chip" data-light="point" aria-pressed="true">Lampu</button>
+        <button type="button" class="chip" data-light="sun" aria-pressed="false">Matahari</button>
+      </div>
+    </div>
+  </div>
+  <div class="prose after">
+    <p>Saat kubus berputar di bidang yang melibatkan arah tegak, persegi kecil bergeser keluar dan berubah menjadi persegi besar. Kubusnya tidak berubah bentuk, hanya bayangannya. Tesseract pun begitu: saat berputar di bidang XW, kubus dalam keluar dan menjadi kubus luar, padahal tesseract-nya tetap kaku.</p>
+    <p>Pilih <b>Matahari</b> untuk sinar sejajar. Bayangan tidak lagi mengecil karena jarak, sehingga persegi dalam dan luar menumpuk. Kubus dalam dan luar pada tesseract juga menumpuk.</p>
+  </div>
+</section>
+
+<!-- ============ 03 ROTASI ============ -->
+<section class="sec" id="rotasi">
+  <div class="sec-head">
+    <p class="eyebrow">03 · Rotasi</p>
+    <h2>Enam bidang putar</h2>
+    <div class="prose">
+      <p>Kita biasa berkata benda berputar "mengelilingi sumbu". Sebenarnya rotasi selalu terjadi pada sebuah bidang. Gasing yang berputar pada sumbu tegak sebenarnya berputar di bidang mendatar XZ.</p>
+      <p>Dengan empat arah ada enam bidang: XY, XZ, YZ, XW, YW, dan ZW. Tiga yang pertama adalah rotasi biasa, jadi bayangannya hanya tampak berputar. Tiga sisanya melibatkan W, dan merekalah yang membuat tesseract tampak membalik dari dalam ke luar.</p>
+    </div>
+  </div>
+  <div class="tool">
+    <figure class="fig">
+      <div class="viewer" id="v-rot"></div>
+    </figure>
+    <div class="panel">
+      <div class="ctl-group">
+        <span class="ctl-label">Bidang biasa</span>
+        <div class="chips" role="group" aria-label="Bidang rotasi biasa">
+          <button type="button" class="chip plane" data-plane="0" aria-pressed="false">XY</button>
+          <button type="button" class="chip plane" data-plane="1" aria-pressed="false">XZ</button>
+          <button type="button" class="chip plane" data-plane="2" aria-pressed="false">YZ</button>
+        </div>
+      </div>
+      <div class="ctl-group">
+        <span class="ctl-label">Bidang yang melibatkan W</span>
+        <div class="chips" role="group" aria-label="Bidang rotasi dengan W">
+          <button type="button" class="chip plane w" data-plane="3" aria-pressed="true">XW</button>
+          <button type="button" class="chip plane w" data-plane="4" aria-pressed="false">YW</button>
+          <button type="button" class="chip plane w" data-plane="5" aria-pressed="false">ZW</button>
+        </div>
+      </div>
+      <p class="status" id="rot-status" aria-live="polite"></p>
+      <label class="range-field" for="rot-speed">
+        <span class="ctl-label">Kecepatan <output id="rot-speed-out">0,6 rad/detik</output></span>
+        <input type="range" id="rot-speed" min="10" max="200" step="5" value="60">
+      </label>
+      <div class="ctl-group">
+        <span class="ctl-label">Coba</span>
+        <div class="chips">
+          <button type="button" class="chip" data-rpreset="biasa">Gasing (XZ)</button>
+          <button type="button" class="chip" data-rpreset="xw">Dalam ↔ luar (XW)</button>
+          <button type="button" class="chip" data-rpreset="ganda">Rotasi ganda (XY + ZW)</button>
+          <button type="button" class="chip" data-rpreset="semua">Semua bidang</button>
+        </div>
+      </div>
+      <button type="button" class="btn ghost" id="rot-reset">Kembalikan ke posisi awal</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 IRISAN ============ -->
+<section class="sec" id="irisan">
+  <div class="sec-head">
+    <p class="eyebrow">04 · Irisan</p>
+    <h2>Benda 4D yang melewati ruang kita</h2>
+    <div class="prose">
+      <p>Bayangkan makhluk datar yang hidup di sebuah bidang. Jika bola menembus dunianya, ia tidak pernah melihat bola. Ia hanya melihat lingkaran yang tiba-tiba muncul, membesar, mengecil, lalu hilang.</p>
+      <p>Jika benda 4D melewati ruang kita, kita juga hanya melihat irisannya: benda 3D yang muncul, berubah bentuk, lalu lenyap. Panel kiri menunjukkan versi satu dimensi lebih rendah sebagai pembanding.</p>
+    </div>
+  </div>
+  <div class="controls top">
+    <div class="ctl-group">
+      <span class="ctl-label">Benda</span>
+      <div class="chips" role="group" aria-label="Pilih benda">
+        <button type="button" class="chip" data-obj="sphere" aria-pressed="false">Hipersfer</button>
+        <button type="button" class="chip" data-obj="tess" aria-pressed="true">Tesseract</button>
+        <button type="button" class="chip" data-obj="c16" aria-pressed="false">16-sel</button>
+        <button type="button" class="chip" data-obj="c5" aria-pressed="false">5-sel</button>
+      </div>
+    </div>
+    <div class="ctl-group">
+      <span class="ctl-label">Arah masuk</span>
+      <div class="chips" id="slice-presets" role="group" aria-label="Arah masuk"></div>
+    </div>
+  </div>
+  <div class="pair">
+    <figure class="fig">
+      <div class="viewer" id="v-slice3"></div>
+      <figcaption>
+        <p class="readout" id="slice-out3"></p>
+      </figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="viewer" id="v-slice4"></div>
+      <figcaption>
+        <p class="readout" id="slice-out4"></p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="controls">
+    <button type="button" class="btn play" id="slice-play" aria-pressed="true">
+      <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+      <span class="lbl">Jeda</span>
+    </button>
+    <label class="range-field wide" for="slice-pos">
+      <span class="ctl-label">Posisi benda <output id="slice-pos-out">tengah</output></span>
+      <input type="range" id="slice-pos" min="-100" max="100" step="1" value="0">
+    </label>
+    <button type="button" class="chip" id="slice-spin" aria-pressed="false">Putar di 4D</button>
+  </div>
+  <div class="prose after">
+    <p>Coba <b>Tesseract</b> dengan arah <b>Pojok dulu</b>. Irisannya dimulai dari tetrahedron kecil, menjadi oktahedron tepat di tengah, lalu kembali menjadi tetrahedron. Kubus yang masuk dengan pojok dulu memberi pola yang setara satu dimensi lebih rendah: segitiga, segi enam, lalu segitiga.</p>
+    <p>Warna sisi irisan di kanan menunjukkan sel asalnya. Setiap sisi irisan tesseract adalah potongan dari salah satu dari delapan kubus penyusunnya. Garis putus-putus adalah bagian yang tersembunyi di belakang.</p>
+  </div>
+</section>
+
+<!-- ============ 05 JARING ============ -->
+<section class="sec" id="jaring">
+  <div class="sec-head">
+    <p class="eyebrow">05 · Jaring-jaring</p>
+    <h2>Membuka tesseract menjadi delapan kubus</h2>
+    <div class="prose">
+      <p>Kubus bisa dibuka menjadi 6 persegi yang terhubung di satu bidang datar. Tesseract bisa dibuka menjadi 8 kubus yang terhubung di ruang 3D. Setiap kubus diputar 90° di bidang yang melibatkan W sampai semuanya rata di ruang kita.</p>
+      <p>Salib dari delapan kubus ini dilukis Salvador Dalí dalam <em>Corpus Hypercubus</em> (1954).</p>
+    </div>
+  </div>
+  <div class="pair">
+    <figure class="fig">
+      <div class="viewer" id="v-unfold3"></div>
+      <figcaption>
+        <p class="fig-title">Kubus → 6 persegi</p>
+      </figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="viewer" id="v-unfold4"></div>
+      <figcaption>
+        <p class="fig-title">Tesseract → 8 kubus</p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="controls">
+    <button type="button" class="btn play" id="unfold-play" aria-pressed="true">
+      <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+      <span class="lbl">Jeda</span>
+    </button>
+    <label class="range-field wide" for="unfold-t">
+      <span class="ctl-label">Terbuka <output id="unfold-out">50%</output></span>
+      <input type="range" id="unfold-t" min="0" max="100" step="1" value="50">
+    </label>
+  </div>
+  <div class="legend recap-legend">
+    <span><i style="background:var(--cell-a)"></i>persegi / kubus dasar (tetap di tempat)</span>
+    <span><i style="background:var(--cell-b)"></i>persegi / kubus seberang</span>
+    <span><i style="background:var(--ax-x)"></i><i style="background:var(--ax-y)"></i><i style="background:var(--ax-z)"></i>yang di sekeliling</span>
+  </div>
+  <div class="prose after">
+    <p>Pada tesseract, kubus dasar adalah kubus "dalam" yang kecil. Enam kubus di sekelilingnya adalah bentuk limas terpancung pada gambar tesseract. Kubus "luar" yang besar berayun paling akhir ke ujung bawah salib. Saat terbuka penuh, kedelapan kubus tampak sama besar karena memang sama besar.</p>
+  </div>
+</section>
+
+<!-- ============ 06 GALERI ============ -->
+<section class="sec" id="galeri">
+  <div class="sec-head">
+    <p class="eyebrow">06 · Galeri</p>
+    <h2>Bentuk-bentuk yang hanya ada di 4D</h2>
+    <div class="prose">
+      <p>Di 3D ada lima bangun ruang beraturan, yaitu benda-benda Platonik. Di 4D ada enam. Galeri ini juga memuat beberapa bentuk lengkung yang hanya mungkin di 4D. Pilih bentuk, atur kecepatan putar di setiap bidang, dan ubah jarak lampu 4D.</p>
+    </div>
+  </div>
+  <div class="tool lab">
+    <figure class="fig">
+      <div class="viewer" id="v-lab"></div>
+    </figure>
+    <div class="panel">
+      <div class="chips" id="lab-shapes" role="group" aria-label="Pilih bentuk">
+        <button type="button" class="chip" data-shape="tess" aria-pressed="false">Tesseract</button>
+        <button type="button" class="chip" data-shape="c5" aria-pressed="false">5-sel</button>
+        <button type="button" class="chip" data-shape="c16" aria-pressed="false">16-sel</button>
+        <button type="button" class="chip" data-shape="c24" aria-pressed="true">24-sel</button>
+        <button type="button" class="chip" data-shape="c120" aria-pressed="false">120-sel</button>
+        <button type="button" class="chip" data-shape="c600" aria-pressed="false">600-sel</button>
+        <button type="button" class="chip" data-shape="duo" aria-pressed="false">Duoprisma</button>
+        <button type="button" class="chip" data-shape="clifford" aria-pressed="false">Torus Clifford</button>
+        <button type="button" class="chip" data-shape="hopf" aria-pressed="false">Fibrasi Hopf</button>
+      </div>
+      <div class="info">
+        <h3 id="lab-title">24-sel</h3>
+        <p class="info-alt" id="lab-alt"></p>
+        <dl class="stats" id="lab-stats"></dl>
+        <p class="info-analog">Padanan 3D: <b id="lab-analog"></b></p>
+        <p id="lab-desc"></p>
+      </div>
+      <div class="pq" id="lab-pq" hidden>
+        <label class="range-field" for="lab-p"><span class="ctl-label">Poligon pertama <output id="lab-p-out">6</output></span><input type="range" id="lab-p" min="3" max="12" step="1" value="6"></label>
+        <label class="range-field" for="lab-q"><span class="ctl-label">Poligon kedua <output id="lab-q-out">6</output></span><input type="range" id="lab-q" min="3" max="12" step="1" value="6"></label>
+      </div>
+      <details class="speeds" open>
+        <summary>Kecepatan putar per bidang</summary>
+        <div class="speed-grid" id="lab-speeds"></div>
+        <div class="ctrl-row">
+          <button type="button" class="btn ghost" id="lab-stop">Hentikan semua</button>
+          <button type="button" class="btn ghost" id="lab-reset">Posisi awal</button>
+        </div>
+      </details>
+      <div class="ctl-grid">
+        <label class="range-field" for="lab-D"><span class="ctl-label">Jarak lampu 4D <output id="lab-D-out">1,80</output></span><input type="range" id="lab-D" min="100" max="600" step="5" value="180"></label>
+        <label class="range-field" for="lab-zoom"><span class="ctl-label">Perbesaran <output id="lab-zoom-out">100%</output></span><input type="range" id="lab-zoom" min="50" max="200" step="5" value="100"></label>
+      </div>
+      <div class="checks">
+        <label class="check" for="lab-ortho"><input type="checkbox" id="lab-ortho"> Sinar sejajar (tanpa perspektif 4D)</label>
+        <label class="check" for="lab-wcolor"><input type="checkbox" id="lab-wcolor"> Warnai menurut posisi W</label>
+        <label class="check" for="lab-dots"><input type="checkbox" id="lab-dots" checked> Tampilkan titik sudut</label>
+      </div>
+      <div class="legend wlegend">
+        <span class="wbar" aria-hidden="true"></span>
+        <span>W negatif (jauh dari lampu 4D)</span><span>W positif (dekat)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RINGKASAN ============ -->
+<section class="sec" id="ringkasan">
+  <div class="sec-head">
+    <p class="eyebrow">Ringkasan</p>
+    <h2>Jadi, seperti apa 4D?</h2>
+  </div>
+  <div class="recap">
+    <div>
+      <h3>Bayangan</h3>
+      <p>Kita hanya bisa melihat bayangan 3D-nya. Bayangan itu tampak berubah bentuk saat diputar, padahal bendanya kaku.</p>
+    </div>
+    <div>
+      <h3>Irisan</h3>
+      <p>Jika benda 4D melewati ruang kita, kita melihat potongan 3D yang muncul, berubah bentuk, lalu lenyap.</p>
+    </div>
+    <div>
+      <h3>Jaring-jaring</h3>
+      <p>Tesseract bisa dibuka menjadi 8 kubus, sama seperti kubus bisa dibuka menjadi 6 persegi.</p>
+    </div>
+    <div>
+      <h3>Rotasi</h3>
+      <p>Ada 6 bidang putar. Yang melibatkan W membuat benda tampak membalik dari dalam ke luar.</p>
+    </div>
+  </div>
+  <div class="prose after">
+    <p>Kuncinya adalah analogi. Saat bingung dengan 4D, tanyakan bagaimana makhluk 2D akan memahami benda 3D, lalu naikkan satu dimensi. Cara berpikir ini dipopulerkan oleh novel <em>Flatland</em> karya Edwin A. Abbott (1884).</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p>Digambar dengan Canvas 2D dan matriks rotasi 4×4, tanpa pustaka eksternal.</p>
+</footer>
+
+<script src="js/core.js"></script>
+<script src="js/shapes.js"></script>
+<script src="js/sections.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
