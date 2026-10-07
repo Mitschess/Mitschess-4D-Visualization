@@ -21,45 +21,60 @@
     <a href="#rotasi">Rotasi</a>
     <a href="#irisan">Irisan</a>
     <a href="#jaring">Jaring-jaring</a>
+    <a href="#cermin">Cermin</a>
     <a href="#galeri">Galeri</a>
   </nav>
   <button type="button" class="vbtn theme-btn" id="theme-toggle" aria-label="Ganti tema">
     <svg class="i-moon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M13.2 10.4A5.6 5.6 0 0 1 5.6 2.8a5.6 5.6 0 1 0 7.6 7.6z" fill="currentColor"/></svg>
     <svg class="i-sun" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"/><path d="M8 .8v2M8 13.2v2M.8 8h2M13.2 8h2M2.9 2.9l1.4 1.4M11.7 11.7l1.4 1.4M2.9 13.1l1.4-1.4M11.7 4.3l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
   </button>
+  <span class="progress" id="progress" aria-hidden="true"></span>
 </header>
 
 <main>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="mulai">
-  <div class="hero-text">
-    <p class="eyebrow">Ruang empat dimensi</p>
-    <h1>Seperti apa dimensi <span class="accent">keempat</span>?</h1>
-    <p class="lede">Kita hidup di ruang tiga dimensi, jadi benda 4D tidak bisa kita lihat secara utuh. Yang bisa kita lihat adalah bayangannya, irisannya, dan jaring-jaringnya. Caranya sama seperti makhluk dua dimensi yang mencoba memahami sebuah kubus.</p>
-    <p>Benda di samping adalah <strong>tesseract</strong>, kubus versi 4D. Seret untuk memutarnya. Tahan <kbd>Shift</kbd> sambil menyeret, atau pilih tombol <b>4D</b>, untuk memutarnya ke arah keempat.</p>
-    <div class="legend" aria-label="Warna rusuk menurut arah">
-      <span><i style="background:var(--ax-x)"></i>X</span>
-      <span><i style="background:var(--ax-y)"></i>Y</span>
-      <span><i style="background:var(--ax-z)"></i>Z</span>
-      <span><i style="background:var(--ax-w)"></i>W, arah keempat</span>
+  <div class="stage">
+    <div class="stage-text">
+      <p class="eyebrow">Ruang empat dimensi</p>
+      <h1>Seperti apa dimensi <span class="accent">keempat</span>?</h1>
+      <p class="lede">Kita hidup di ruang tiga dimensi, jadi benda 4D tidak bisa kita lihat secara utuh. Yang bisa kita lihat adalah bayangannya, irisannya, dan jaring-jaringnya. Caranya sama seperti makhluk dua dimensi yang mencoba memahami sebuah kubus.</p>
+      <p class="stage-sub">Benda di samping adalah <strong>tesseract</strong>, kubus versi 4D. Seret untuk memutarnya. Tahan <kbd>Shift</kbd> sambil menyeret, atau pilih tombol <b>4D</b>, untuk memutarnya ke arah keempat.</p>
+      <div class="cta">
+        <a class="btn stage-primary" href="#tangga">Mulai menjelajah ↓</a>
+        <a class="btn stage-ghost" href="#galeri">Lihat galeri bentuk</a>
+      </div>
+    </div>
+    <figure class="fig stage-fig">
+      <div class="viewer on-stage" id="v-hero"></div>
+      <figcaption class="fig-bar">
+        <button type="button" class="btn play stage-ghost" id="hero-play" aria-pressed="true">
+          <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+          <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+          <span class="lbl">Jeda</span>
+        </button>
+        <button type="button" class="btn stage-ghost" id="hero-build">Bangun ulang</button>
+        <span class="stage-cap" id="hero-caption">Rotasi ganda di bidang XW dan YZ</span>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="hero-foot">
+    <div class="key">
+      <p class="note-label">Cara membaca gambar</p>
+      <div class="legend" aria-label="Warna rusuk menurut arah">
+        <span><i style="background:var(--ax-x)"></i>X</span>
+        <span><i style="background:var(--ax-y)"></i>Y</span>
+        <span><i style="background:var(--ax-z)"></i>Z</span>
+        <span><i style="background:var(--ax-w)"></i>W, arah keempat</span>
+      </div>
+      <p class="small">Warna rusuk menunjukkan arahnya. Warna bola menunjukkan posisinya di arah W, dan skala W di tepi kanan gambar memperlihatkan posisi setiap titik sudut di arah yang tidak bisa kita lihat itu.</p>
     </div>
     <div class="note">
       <p class="note-label">Bukan soal waktu</p>
       <p>Dalam fisika, waktu sering disebut dimensi keempat. Halaman ini membahas hal lain: arah <em>ruang</em> keempat yang tegak lurus terhadap panjang, lebar, dan tinggi sekaligus. Arah itu kita beri nama <b>W</b>.</p>
     </div>
   </div>
-  <figure class="fig hero-fig">
-    <div class="viewer" id="v-hero"></div>
-    <figcaption class="fig-bar">
-      <button type="button" class="btn play" id="hero-play" aria-pressed="true">
-        <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
-        <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
-        <span class="lbl">Jeda</span>
-      </button>
-      <span class="readout">Rotasi ganda di bidang XW dan YZ</span>
-    </figcaption>
-  </figure>
 </section>
 
 <!-- ============ 01 TANGGA ============ -->
@@ -323,10 +338,64 @@
   </div>
 </section>
 
-<!-- ============ 06 GALERI ============ -->
+<!-- ============ 06 CERMIN ============ -->
+<section class="sec" id="cermin">
+  <div class="sec-head">
+    <p class="eyebrow">06 · Cermin</p>
+    <h2>Memutar benda menjadi bayangan cerminnya</h2>
+    <div class="prose">
+      <p>Huruf F yang tergambar di kertas tidak bisa diubah menjadi F terbalik hanya dengan menggeser atau memutarnya di atas kertas. Angkat huruf itu ke dimensi ketiga, balik, lalu letakkan lagi. Sekarang huruf itu terbalik.</p>
+      <p>Hal yang sama berlaku satu dimensi lebih tinggi. Pegas yang berpilin ke kanan tidak bisa diubah menjadi pegas yang berpilin ke kiri dengan rotasi apa pun di 3D. Di 4D, cukup putar pegas itu 180° di bidang XW.</p>
+    </div>
+  </div>
+  <div class="pair">
+    <figure class="fig">
+      <div class="viewer" id="v-mirror3"></div>
+      <figcaption>
+        <p class="readout" id="mirror-out3"></p>
+      </figcaption>
+    </figure>
+    <figure class="fig">
+      <div class="viewer" id="v-mirror4"></div>
+      <figcaption>
+        <p class="readout" id="mirror-out4"></p>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="controls">
+    <button type="button" class="btn play" id="mirror-play" aria-pressed="true">
+      <svg class="i-pause" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.5h2.4v9H2.5zM7.1 1.5h2.4v9H7.1z" fill="currentColor"/></svg>
+      <svg class="i-play" viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M2.5 1.2l8 4.8-8 4.8z" fill="currentColor"/></svg>
+      <span class="lbl">Jeda</span>
+    </button>
+    <label class="range-field wide" for="mirror-angle">
+      <span class="ctl-label">Sudut putar <output id="mirror-angle-out">0°</output></span>
+      <input type="range" id="mirror-angle" min="0" max="180" step="1" value="0">
+    </label>
+  </div>
+  <div class="prose after">
+    <p>Pada sudut 90°, huruf F tampak sebagai garis bagi makhluk datar, karena hurufnya sedang berdiri tegak lurus terhadap dunianya. Pegas juga tampak pipih pada sudut yang sama, karena setengah bentuknya sedang berada di arah W yang tidak bisa kita lihat.</p>
+  </div>
+  <div class="facts">
+    <div>
+      <p class="note-label">Sarung tangan</p>
+      <p>Makhluk 4D bisa mengubah sarung tangan kiri menjadi sarung tangan kanan dengan cara yang sama seperti pegas di atas.</p>
+    </div>
+    <div>
+      <p class="note-label">Simpul</p>
+      <p>Simpul pada tali bisa dilepas tanpa memotong tali. Di 4D, satu bagian tali bisa melewati bagian lain lewat arah W tanpa bersentuhan.</p>
+    </div>
+    <div>
+      <p class="note-label">Brankas</p>
+      <p>Makhluk 4D bisa melihat isi brankas yang terkunci, sama seperti kita bisa melihat isi persegi yang digambar di kertas tanpa menembus garisnya.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 GALERI ============ -->
 <section class="sec" id="galeri">
   <div class="sec-head">
-    <p class="eyebrow">06 · Galeri</p>
+    <p class="eyebrow">07 · Galeri</p>
     <h2>Bentuk-bentuk yang hanya ada di 4D</h2>
     <div class="prose">
       <p>Di 3D ada lima bangun ruang beraturan, yaitu benda-benda Platonik. Di 4D ada enam. Galeri ini juga memuat beberapa bentuk lengkung yang hanya mungkin di 4D. Pilih bentuk, atur kecepatan putar di setiap bidang, dan ubah jarak lampu 4D.</p>
@@ -422,6 +491,8 @@
 <script src="js/core.js"></script>
 <script src="js/shapes.js"></script>
 <script src="js/sections.js"></script>
+<script src="js/slicing.js"></script>
+<script src="js/unfold.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
